@@ -7,40 +7,48 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class Comment extends JPanel {
+	
 	private JTextField courseIDInputFirld;
-	/**
-	 * Create the panel.
-	 */
+	private JButton searchBtn;
+	private JLabel searchOrderLabel,comment;
+	private SQL sql = new SQL();
+	
+	
 	public Comment() {
 		setBounds(300, 100, 900, 600);
 		setLayout(null);
-		
+
 		ImageIcon redBtn = new ImageIcon(this.getClass().getResource("/RedBtn.png"));
-		
-		JLabel searchOrderLabel = new JLabel("Please input the course ID");
+
+		searchOrderLabel = new JLabel("Please input the course ID");
 		searchOrderLabel.setBounds(178, 155, 500, 48);
 		searchOrderLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		searchOrderLabel.setFont(new Font("Corbel Light", Font.PLAIN, 30));
 		add(searchOrderLabel);
-		
+
 		courseIDInputFirld = new JTextField();
 		courseIDInputFirld.setBounds(268, 213, 326, 33);
 		add(courseIDInputFirld);
 		courseIDInputFirld.setColumns(10);
-		
-		JLabel lblNewLabel = new JLabel("Search comments");
-		lblNewLabel.setFont(new Font("Calisto MT", Font.BOLD, 14));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(355, 256, 144, 61);
-		add(lblNewLabel);
-		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(redBtn);
-		btnNewButton.setBounds(338, 256, 180, 61);
-		btnNewButton.setOpaque(false);
-		btnNewButton.setContentAreaFilled(false);
-		btnNewButton.setBorderPainted(false);
-		add(btnNewButton);
+
+		comment = new JLabel("Search comments");
+		comment.setFont(new Font("Calisto MT", Font.BOLD, 14));
+		comment.setHorizontalAlignment(SwingConstants.CENTER);
+		comment.setBounds(355, 256, 144, 61);
+		add(comment);
+
+		searchBtn = new JButton("");
+		searchBtn.setIcon(redBtn);
+		searchBtn.setBounds(338, 256, 180, 61);
+		searchBtn.setOpaque(false);
+		searchBtn.setContentAreaFilled(false);
+		searchBtn.setBorderPainted(false);
+		add(searchBtn);
+		this.setButton();
+	}
+
+	private void setButton() {
+		searchBtn.addActionListener(null);
 	}
 
 }
